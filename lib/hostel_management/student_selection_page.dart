@@ -218,10 +218,10 @@ class _StudentSelectionPageState extends State<StudentSelectionPage> {
                   }).toList(),
                 ),
               ),
-              IconButton(
-                icon: Icon(Icons.add_circle, color: Colors.blue),
-                onPressed: selectedClass == null ? null : () => _showAddDialog("Student"),
-              ),
+              // IconButton(
+              //   icon: Icon(Icons.add_circle, color: Colors.blue),
+              //   onPressed: selectedClass == null ? null : () => _showAddDialog("Student"),
+              // ),
             ],
           ),
         ],
