@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../drawer/main_layout_fixedDrawer.dart';
-import 'item_list.dart';
+import 'class_subject_manager.dart';
+import 'item_name_list.dart';
 import 'subject_average.dart';
 
 class ManagementPage extends StatefulWidget {
@@ -14,8 +15,6 @@ class _ManagementPageState extends State<ManagementPage> {
   final Map<String, List<String>> _items = {
     "শিক্ষাবর্ষ": [],
     "পরীক্ষার নাম": [],
-    "ক্লাস": [],
-    "বিষয়": [],
   };
 
   void _addItem(String category, String item) {
@@ -43,7 +42,11 @@ class _ManagementPageState extends State<ManagementPage> {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
-            ItemList(
+            ClassSubjectManager(),
+            const Divider(),
+            const SubjectAverage(),
+            const Divider(),
+            ItemNameList(
               category: "শিক্ষাবর্ষ",
               items: _items["শিক্ষাবর্ষ"]!,
               onAdd: _addItem,
@@ -51,31 +54,13 @@ class _ManagementPageState extends State<ManagementPage> {
               onDelete: _deleteItem,
             ),
             const Divider(),
-            ItemList(
+            ItemNameList(
               category: "পরীক্ষার নাম",
               items: _items["পরীক্ষার নাম"]!,
               onAdd: _addItem,
               onEdit: _editItem,
               onDelete: _deleteItem,
             ),
-            const Divider(),
-            ItemList(
-              category: "ক্লাস",
-              items: _items["ক্লাস"]!,
-              onAdd: _addItem,
-              onEdit: _editItem,
-              onDelete: _deleteItem,
-            ),
-            const Divider(),
-            ItemList(
-              category: "বিষয়",
-              items: _items["বিষয়"]!,
-              onAdd: _addItem,
-              onEdit: _editItem,
-              onDelete: _deleteItem,
-            ),
-            const Divider(),  // ✅ নতুন ডিভাইডার
-            const SubjectAverage(),  // ✅ নতুন Subject Average ফিচার
           ],
         ),
       ),

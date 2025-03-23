@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ItemList extends StatefulWidget {
+class ItemNameList extends StatefulWidget {
   final String category;
   final List<String> items;
   final Function(String, String) onAdd;
   final Function(String, int, String) onEdit;
   final Function(String, int) onDelete;
 
-  const ItemList({
+  const ItemNameList({
     super.key,
     required this.category,
     required this.items,
@@ -17,10 +17,10 @@ class ItemList extends StatefulWidget {
   });
 
   @override
-  State<ItemList> createState() => _ItemListState();
+  State<ItemNameList> createState() => _ItemNameListState();
 }
 
-class _ItemListState extends State<ItemList> {
+class _ItemNameListState extends State<ItemNameList> {
   final TextEditingController _controller = TextEditingController();
   int? _editingIndex;
   final TextEditingController _editController = TextEditingController();

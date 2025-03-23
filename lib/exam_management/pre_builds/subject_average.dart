@@ -267,8 +267,8 @@ class _SubjectAverageState extends State<SubjectAverage> {
                               int index = entry.key;
                               Map<String, dynamic> grade = entry.value;
                               return DataRow(
-                                color: MaterialStateProperty.resolveWith<Color?>(
-                                      (Set<MaterialState> states) {
+                                color: WidgetStateProperty.resolveWith<Color?>(
+                                      (Set<WidgetState> states) {
                                     return index.isEven ? Colors.grey.shade100 : null;
                                   },
                                 ),
