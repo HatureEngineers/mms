@@ -113,7 +113,7 @@ class _SubjectAverageState extends State<SubjectAverage> {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
-      margin: const EdgeInsets.all(12.0),
+      margin: const EdgeInsets.all(5.0),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
@@ -123,12 +123,10 @@ class _SubjectAverageState extends State<SubjectAverage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Center(
-                    child: Text(
+                   Text(
                       "রেজাল্ট সিস্টেম সেট করুন",
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                  ),
                   const SizedBox(height: 8),
 
                   // সর্বোচ্চ ও সর্বনিম্ন নম্বর ফিল্ড
@@ -244,12 +242,12 @@ class _SubjectAverageState extends State<SubjectAverage> {
                             headingRowHeight: 40,
                             dataRowHeight: 50,
                             border: TableBorder(
-                              top: BorderSide(color: Colors.grey.shade400, width: 1),  // উপরের বর্ডার
-                              bottom: BorderSide(color: Colors.grey.shade400, width: 1), // নিচের বর্ডার
-                              left: BorderSide(color: Colors.grey.shade400, width: 1),  // বাম বর্ডার
-                              right: BorderSide(color: Colors.grey.shade400, width: 1), // ডান বর্ডার
-                              horizontalInside: BorderSide(color: Colors.grey.shade300, width: 1), // সারির মধ্যে দাগ
-                              verticalInside: BorderSide(color: Colors.grey.shade300, width: 1), // কলামের মধ্যে দাগ
+                              top: BorderSide(color: Colors.grey.shade400, width: 1),
+                              bottom: BorderSide(color: Colors.grey.shade400, width: 1),
+                              left: BorderSide(color: Colors.grey.shade400, width: 1),
+                              right: BorderSide(color: Colors.grey.shade400, width: 1),
+                              horizontalInside: BorderSide(color: Colors.grey.shade300, width: 1),
+                              verticalInside: BorderSide(color: Colors.grey.shade300, width: 1),
                             ),
                             headingTextStyle: const TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black87

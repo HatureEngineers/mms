@@ -3,6 +3,8 @@ import '../academic/students_admission/admission.dart';
 import '../accounts/bank/bank_page.dart';
 import '../dashboard/dashboard_layout.dart';
 import '../exam_management/pre_builds/management_page.dart';
+import '../exam_management/questions/question_upload_page.dart';
+import '../exam_management/seat_plan/seat_plan_page.dart';
 import '../hostel_management/hostel_management_page.dart';
 import '../hostel_management/room_seat/room_and_seat.dart';
 import '../hostel_management/Guardian and Leave/guardian_and_leave.dart';
@@ -151,10 +153,10 @@ class DrawerItems extends StatelessWidget {
               _buildDrawerSubItem(
                 text: "বোডিং খরচ",
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Admission()),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => const Admission()),
+                  // );
                 },
               ),
             ],
@@ -176,7 +178,7 @@ class DrawerItems extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Admission()),
+                    MaterialPageRoute(builder: (context) => const SeatPlanPage()),
                   );
                 },
               ),
@@ -185,7 +187,7 @@ class DrawerItems extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Admission()),
+                    MaterialPageRoute(builder: (context) => const QuestionUploadPage()),
                   );
                 },
               ),
