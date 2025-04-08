@@ -259,7 +259,7 @@ class _SubjectAverageState extends State<SubjectAverage> {
                               DataColumn(label: Center(child: Text("প্রাপ্ত নম্বর"))),
                               DataColumn(label: Center(child: Text("গ্রেড"))),
                               DataColumn(label: Center(child: Text("জিপিএ"))),
-                              DataColumn(label: Center(child: Text("অপশন"))),
+                              DataColumn(label: Center(child: Text("এডিট/ডিলিট"))),
                             ],
                             rows: _gradingList.asMap().entries.map((entry) {
                               int index = entry.key;

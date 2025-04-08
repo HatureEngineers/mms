@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/scheduler.dart';
 import '../../drawer/main_layout_fixedDrawer.dart';
+import '../exam_common_dropdown_row.dart';
 import 'question_upload_controller.dart';
 
 class QuestionUploadPage extends StatefulWidget {
@@ -50,62 +51,23 @@ class _QuestionUploadPageState extends State<QuestionUploadPage> {
 
   // Dropdown row for selecting Exam, Session, Class, and Subject
   Widget _buildDropdownRow() {
-    return Row(
-      children: [
-        Expanded(child: _buildDropdown(
-          label: "পরীক্ষার নাম",
-          items: controller.exams,
-          value: controller.selectedExam,
-          onChanged: (value) => setState(() => controller.selectExam(value)),
-        )),
-        const SizedBox(width: 10),
-        Expanded(child: _buildDropdown(
-          label: "শিক্ষাবর্ষ",
-          items: controller.sessions,
-          value: controller.selectedSession,
-          onChanged: (value) => setState(() => controller.selectSession(value)),
-        )),
-        const SizedBox(width: 10),
-        Expanded(child: _buildDropdown(
-          label: "ক্লাস",
-          items: controller.availableClasses,
-          value: controller.selectedClass,
-          onChanged: (value) => setState(() => controller.selectClass(value)),
-        )),
-        const SizedBox(width: 10),
-        Expanded(child: _buildDropdown(
-          label: "বিষয়",
-          items: controller.availableSubjects,
-          value: controller.selectedSubject,
-          onChanged: (value) => setState(() => controller.selectSubject(value)),
-        )),
-      ],
-    );
-  }
-
-  // Dropdown helper widget
-  Widget _buildDropdown<T>({
-    required String label,
-    required List<T> items,
-    required T? value,
-    required Function(T?) onChanged,
-  }) {
-    return DropdownButtonFormField<T>(
-      value: value,
-      isExpanded: true,
-      decoration: InputDecoration(
-        labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10), // কম উচ্চতা
-        isDense: true, // কমপ্যাক্ট ডিজাইন
-      ),
-      items: items.map((item) => DropdownMenuItem<T>(
-        value: item,
-        child: Text(item.toString()),
-      )).toList(),
-      onChanged: onChanged,
+    return CommonDropdownRow<String>(
+      examLabel: "পরীক্ষার নাম",
+      examItems: controller.exams,
+      selectedExam: controller.selectedExam,
+      onExamChanged: (value) => setState(() => controller.selectExam(value)),
+      sessionLabel: "শিক্ষাবর্ষ",
+      sessionItems: controller.sessions,
+      selectedSession: controller.selectedSession,
+      onSessionChanged: (value) => setState(() => controller.selectSession(value)),
+      classLabel: "ক্লাস",
+      classItems: controller.availableClasses,
+      selectedClass: controller.selectedClass,
+      onClassChanged: (value) => setState(() => controller.selectClass(value)),
+      subjectLabel: "বিষয়",
+      subjectItems: controller.availableSubjects,
+      selectedSubject: controller.selectedSubject,
+      onSubjectChanged: (value) => setState(() => controller.selectSubject(value)),
     );
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../drawer/main_layout_fixedDrawer.dart';
+import '../exam_common_dropdown_row.dart';
 import 'seat_plan_controller.dart';
 
 class SeatPlanPage extends StatefulWidget {
@@ -29,7 +30,7 @@ class _SeatPlanPageState extends State<SeatPlanPage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildDropdownRow(),
+            _buildDropdownRow(), // এখানে CommonDropdownRow ব্যবহার করা হবে
             const SizedBox(height: 10),
             _buildRoomInputSection(),
             const SizedBox(height: 10),
@@ -40,63 +41,37 @@ class _SeatPlanPageState extends State<SeatPlanPage> {
     );
   }
 
+  // CommonDropdownRow ব্যবহার করা হচ্ছে
   Widget _buildDropdownRow() {
-    return Row(
-      children: [
-        Expanded(child: _buildDropdown(
-          label: "পরীক্ষার নাম",
-          items: controller.exams,
-          value: controller.selectedExam,
-          onChanged: (value) {
-            setState(() {
-              controller.selectExam(value);
-            });
-          },
-        )),
-        const SizedBox(width: 10),
-        Expanded(child: _buildDropdown(
-          label: "শিক্ষাবর্ষ",
-          items: controller.sessions,
-          value: controller.selectedSession,
-          onChanged: controller.selectedExam == null ? null : (value) {
-            setState(() => controller.selectSession(value as String?));
-          },
-        )),
-        const SizedBox(width: 10),
-        Expanded(child: _buildDropdown(
-          label: "ক্লাস",
-          items: controller.availableClasses,
-          value: controller.selectedClass,
-          onChanged: controller.selectedSession == null ? null : (value) {
-            setState(() => controller.selectClass(value as String?));
-          },
-        )),
-      ],
-    );
-  }
+    return CommonDropdownRow<String>(
+      examLabel: "পরীক্ষার নাম",
+      examItems: controller.exams,
+      selectedExam: controller.selectedExam,
+      onExamChanged: (value) {
+        setState(() {
+          controller.selectExam(value);
+        });
+      },
 
-  Widget _buildDropdown<T>({
-    required String label,
-    required List<T> items,
-    required T? value,
-    required Function(T?)? onChanged,
-  }) {
-    return DropdownButtonFormField<T>(
-      value: value,
-      isExpanded: true,
-      decoration: InputDecoration(
-        labelText: label,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10), // কম উচ্চতা
-        isDense: true, // কমপ্যাক্ট ডিজাইন
-      ),
-      items: items.map((item) => DropdownMenuItem<T>(
-        value: item,
-        child: Text(item.toString()),
-      )).toList(),
-      onChanged: onChanged,
+      sessionLabel: "শিক্ষাবর্ষ",
+      sessionItems: controller.sessions,
+      selectedSession: controller.selectedSession,
+      onSessionChanged: (value) {
+        setState(() => controller.selectSession(value));
+      },
+
+      classLabel: "ক্লাস",
+      classItems: controller.availableClasses,
+      selectedClass: controller.selectedClass,
+      onClassChanged: (value) {
+        setState(() => controller.selectClass(value));
+      },
+
+      // যদি subject ড্রপডাউন প্রয়োজন না হয়, তাহলে এটা null রেখে দিবে
+      subjectLabel: null, // subjectLabel সেট করো যদি subject ড্রপডাউন প্রয়োজন হয়
+      subjectItems: null, // subjectItems সেট করো যদি subject ড্রপডাউন প্রয়োজন হয়
+      selectedSubject: null, // selectedSubject সেট করো যদি subject ড্রপডাউন প্রয়োজন হয়
+      onSubjectChanged: null, // onSubjectChanged সেট করো যদি subject ড্রপডাউন প্রয়োজন হয়
     );
   }
 
