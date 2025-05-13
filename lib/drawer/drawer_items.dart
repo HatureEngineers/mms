@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../academic/Attendance/attendance_page.dart';
 import '../academic/students_admission/admission.dart';
 import '../accounts/bank/bank_page.dart';
 import '../dashboard/dashboard_layout.dart';
@@ -88,11 +89,11 @@ class DrawerItems extends StatelessWidget {
                 },
               ),
               _buildDrawerSubItem(
-                text: "খেলাধুলা",
+                text: "Attendance",
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Admission()),
+                    MaterialPageRoute(builder: (context) => const AttendancePage()),
                   );
                 },
               ),

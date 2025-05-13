@@ -240,7 +240,8 @@ class _SubjectAverageState extends State<SubjectAverage> {
                           child: DataTable(
                             columnSpacing: 20,
                             headingRowHeight: 40,
-                            dataRowHeight: 50,
+                            dataRowMinHeight: 50,
+                            dataRowMaxHeight: 50,
                             border: TableBorder(
                               top: BorderSide(color: Colors.grey.shade400, width: 1),
                               bottom: BorderSide(color: Colors.grey.shade400, width: 1),
